@@ -1,0 +1,10 @@
+<div class="vagas-em-destaque">
+  <h2>Vagas em Destaque</h2>
+  <ul>
+    <li *ngFor="let vaga of vagas">
+      <h3>{{ vaga.titulo }}</h3>
+      <p>{{ vaga.descricao }}</p>
+      <button (click)="detalhesVaga(vaga.id)">Detalhes</button>
+    </li>
+  </ul>
+</div>
