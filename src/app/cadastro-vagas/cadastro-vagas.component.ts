@@ -9,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class CadastroVagasComponent {
 
+adicionarVaga() {
+throw new Error('Method not implemented.');
+}
+
 }
