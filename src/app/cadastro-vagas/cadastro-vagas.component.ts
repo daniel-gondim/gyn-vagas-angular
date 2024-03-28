@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Vaga } from '../service/servico-vaga.service';
+import { ServicoVagaService, Vaga } from '../service/servico-vaga.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -11,16 +11,26 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './cadastro-vagas.component.css',
 })
 export class CadastroVagasComponent {
-  private vagas: Vaga[] = [];
-  nome: any;
-  salario: any;
-  descricao: any;
-  empresa: any;
-  contato: any;
+  nome = '';
+  salario = 0;
+  descricao = '';
+  empresa = '';
+  contato = '';
 
-  constructor() {}
+  constructor(private vagaService: ServicoVagaService) {}
 
   adicionarVaga() {
-    throw new Error('Method not implemented.');
+    this.vagaService.adicionarVaga({
+      nome: this.nome,
+      salario: this.salario,
+      descricao: this.descricao,
+      empresa: this.empresa,
+      contato: this.contato,
+    });
+    this.nome;
+    this.salario;
+    this.descricao;
+    this.empresa;
+    this.contato;
   }
 }
