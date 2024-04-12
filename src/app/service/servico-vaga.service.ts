@@ -18,6 +18,7 @@ export class ServicoVagaService {
   constructor() { }
 
   adicionarVaga(vaga: Vaga) {
+    console.log("Vaga adicionada!")
     this.vagas.push(vaga);
   }
 
