@@ -1,0 +1,25 @@
+/* tabela-vagas.component.css */
+.tabela-vagas table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 10px;
+  }
+
+  .tabela-vagas th,
+  .tabela-vagas td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+
+  .tabela-vagas th {
+    background-color: #f2f2f2;
+  }
+
+  .tabela-vagas tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .tabela-vagas tr:hover {
+    background-color: #e9e9e9;
+  }
