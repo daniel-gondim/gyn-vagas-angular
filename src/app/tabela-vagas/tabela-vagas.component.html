@@ -1,19 +1,23 @@
 <div class="tabela-vagas">
   <h2>Lista de Vagas</h2>
   <table>
-    <tr>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Empresa</th>
-      <th>Contato</th>
-      <th>Salário</th>
-    </tr>
-    <tr *ngFor="let vaga of vagas">
-      <td>{{ vaga.nome }}</td>
-      <td>{{ vaga.descricao }}</td>
-      <td>{{ vaga.empresa }}</td>
-      <td>{{ vaga.contato }}</td>
-      <td>{{ vaga.salario }}</td>
-    </tr>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Empresa</th>
+        <th>Contato</th>
+        <th>Salário</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vaga of vagas">
+        <td>{{ vaga.nome }}</td>
+        <td>{{ vaga.descricao }}</td>
+        <td>{{ vaga.empresa }}</td>
+        <td>{{ vaga.contato }}</td>
+        <td>R$ {{ vaga.salario }}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
