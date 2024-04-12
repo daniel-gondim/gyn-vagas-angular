@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class CadastroVagasComponent {
   nome = '';
-  salario = 0;
+  salario : any;
   descricao = '';
   empresa = '';
   contato = '';
@@ -32,5 +32,10 @@ export class CadastroVagasComponent {
       contato: this.contato,
     });
     alert("Vaga adicionada com sucesso!")
+    this.nome = "";
+    this.descricao = "";
+    this.contato = "";
+    this.empresa = "";
+    this.salario = "";
   }
 }
