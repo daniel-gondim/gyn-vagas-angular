@@ -9,16 +9,15 @@ export interface Vaga {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ServicoVagaService {
   private vagas: Vaga[] = [];
 
-  constructor() { }
+  constructor() {}
 
   adicionarVaga(vaga: Vaga) {
-    console.log("Vaga adicionada!")
+    console.log('Vaga adicionada!');
     this.vagas.push(vaga);
   }
 
