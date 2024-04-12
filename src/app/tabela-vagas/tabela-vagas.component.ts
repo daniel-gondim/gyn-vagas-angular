@@ -16,6 +16,7 @@ export class TabelaVagasComponent implements OnInit{
 
   ngOnInit() {
     this.vagas = this.servicoVagaService.obterVagas();
+    console.log("Obtendo vagas")
   }
 
 }
