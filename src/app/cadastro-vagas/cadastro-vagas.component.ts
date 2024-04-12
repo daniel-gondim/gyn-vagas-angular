@@ -20,6 +20,10 @@ export class CadastroVagasComponent {
   constructor(private vagaService: ServicoVagaService) {}
 
   adicionarVaga() {
+    if (!this.nome || !this.descricao || !this.empresa || !this.contato || !this.salario) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
     this.vagaService.adicionarVaga({
       nome: this.nome,
       salario: this.salario,
@@ -27,5 +31,6 @@ export class CadastroVagasComponent {
       empresa: this.empresa,
       contato: this.contato,
     });
+    alert("Vaga adicionada com sucesso!")
   }
 }
