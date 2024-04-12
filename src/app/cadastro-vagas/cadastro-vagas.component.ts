@@ -27,10 +27,5 @@ export class CadastroVagasComponent {
       empresa: this.empresa,
       contato: this.contato,
     });
-    this.nome;
-    this.salario;
-    this.descricao;
-    this.empresa;
-    this.contato;
   }
 }
