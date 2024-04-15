@@ -17,11 +17,26 @@ export class ServicoVagaService {
   constructor() {}
 
   adicionarVaga(vaga: Vaga) {
+    if (!this.validarVaga(vaga)) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
     console.log('Vaga adicionada!');
     this.vagas.push(vaga);
   }
 
   obterVagas(): Vaga[] {
     return this.vagas;
+  }
+
+  private validarVaga(vaga: Vaga): boolean {
+    return (
+      !!vaga.nome &&
+      !!vaga.descricao &&
+      !!vaga.empresa &&
+      !!vaga.contato &&
+      !!vaga.salario
+    );
   }
 }
