@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 export interface Vaga {
   nome: string;
@@ -14,16 +14,18 @@ export interface Vaga {
 export class ServicoVagaService {
   private vagas: Vaga[] = [];
 
-  constructor() {}
+  constructor() {
+  }
 
-  adicionarVaga(vaga: Vaga) {
+  adicionarVaga(vaga: Vaga): boolean {
     if (!this.validarVaga(vaga)) {
       alert('Por favor, preencha todos os campos.');
-      return;
+      return false;
     }
 
     console.log('Vaga adicionada!');
     this.vagas.push(vaga);
+    return true;
   }
 
   obterVagas(): Vaga[] {
