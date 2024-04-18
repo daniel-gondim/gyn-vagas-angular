@@ -8,7 +8,7 @@ import {TabelaVagasComponent} from './tabela-vagas/tabela-vagas.component';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, CadastroVagasComponent, TabelaVagasComponent]
+  imports: [RouterOutlet, CadastroVagasComponent, TabelaVagasComponent, RouterOutlet, RouterLink]
 })
 export class AppComponent {
   title = 'rotas-vaga';
