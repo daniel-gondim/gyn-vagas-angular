@@ -1,15 +1,22 @@
-import {Component} from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
-import {CadastroVagasComponent} from "./cadastro-vagas/cadastro-vagas.component";
-import {TabelaVagasComponent} from './tabela-vagas/tabela-vagas.component';
+import { Component } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { CadastroVagasComponent } from "./cadastro-vagas/cadastro-vagas.component";
+import { TabelaVagasComponent } from './tabela-vagas/tabela-vagas.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [RouterOutlet, CadastroVagasComponent, TabelaVagasComponent, RouterOutlet, RouterLink]
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+
+    imports: [RouterOutlet,
+      CadastroVagasComponent,
+      TabelaVagasComponent,
+      NavbarComponent,
+      RouterLink,
+      RouterLinkActive]
 })
 export class AppComponent {
-  title = 'rotas-vaga';
+  title = 'gyn-vagas-angular';
 }
