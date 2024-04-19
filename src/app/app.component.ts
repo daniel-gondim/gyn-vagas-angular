@@ -18,5 +18,5 @@ import { NavbarComponent } from './navbar/navbar.component';
       RouterLinkActive]
 })
 export class AppComponent {
-  title = 'gyn-vagas-angular';
+  title = 'Gyn Vagas';
 }

@@ -11,13 +11,13 @@ describe('PaginaVagaComponent', () => {
       imports: [PaginaVagaComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(PaginaVagaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('deve criar o componente pagina-vagas', () => {
     expect(component).toBeTruthy();
   });
 });
