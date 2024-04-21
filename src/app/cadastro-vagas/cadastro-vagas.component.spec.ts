@@ -9,7 +9,7 @@ describe('CadastroVagasComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CommonModule, FormsModule],
+      imports: [CommonModule, FormsModule ],
       declarations: [],
     }).compileComponents();
 
