@@ -1,17 +1,17 @@
-import {Component} from '@angular/core';
+import {HttpClientModule} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
 import {ServicoVagaService, Vaga} from '../service/servico-vaga.service';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-vagas',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [HttpClientModule, CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './cadastro-vagas.component.html',
   styleUrl: './cadastro-vagas.component.css',
 })
-export class CadastroVagasComponent {
+export class CadastroVagasComponent implements OnInit{
   nome = '';
   salario: any;
   descricao = '';
