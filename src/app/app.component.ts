@@ -3,6 +3,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CadastroVagasComponent } from "./cadastro-vagas/cadastro-vagas.component";
 import { TabelaVagasComponent } from './tabela-vagas/tabela-vagas.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
     selector: 'app-root',
@@ -15,7 +16,8 @@ import { NavbarComponent } from './navbar/navbar.component';
       TabelaVagasComponent,
       NavbarComponent,
       RouterLink,
-      RouterLinkActive]
+      RouterLinkActive,
+      HttpClientModule]
 })
 export class AppComponent {
   title = 'Gyn Vagas';
