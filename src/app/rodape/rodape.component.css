@@ -1,0 +1,16 @@
+.footer {
+    background-color: #222; /* Cor de fundo do rodapé */
+    color: #ccc; /* Cor do texto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.footer-left, .footer-right {
+    margin: 0;
+}
+
+.footer p {
+    margin: 0;
+}
