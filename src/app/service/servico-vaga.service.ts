@@ -17,6 +17,7 @@ export class ServicoVagaService {
   private apiUrl = 'http://localhost:8080/vagas';
 
   constructor(private http: HttpClient) {
+    console.log('ServicoVagaService instanciado');
   }
 
   adicionarVaga(vaga: Vaga): Observable<Vaga> {

@@ -11,7 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   templateUrl: './cadastro-vagas.component.html',
   styleUrl: './cadastro-vagas.component.css',
 })
-export class CadastroVagasComponent implements OnInit{
+export class CadastroVagasComponent {
   nome = '';
   salario: any;
   descricao = '';
@@ -20,13 +20,7 @@ export class CadastroVagasComponent implements OnInit{
   vagas: Vaga[] = [];
 
   constructor(private vagaService: ServicoVagaService) {
-  }
-
-  ngOnInit(): void {
-    this.vagaService.obterVagas().subscribe(
-      (data: Vaga[]) => this.vagas = data,
-      (error) => console.error('Erro ao obter vagas', error)
-    );
+    console.log('ServicoVagaService injetado:', !!this.vagaService);
   }
 
   adicionarVaga() {

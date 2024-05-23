@@ -14,6 +14,7 @@ export class TabelaVagasComponent implements OnInit {
   vagas: Vaga[] = [];
 
   constructor(private servicoVagaService: ServicoVagaService) {
+    console.log('ServicoVagaService injetado:', !!this.servicoVagaService);
   }
 
   ngOnInit() {
