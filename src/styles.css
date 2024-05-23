@@ -1,3 +1,5 @@
+@import 'bootstrap/scss/bootstrap.scss';
+
 :root {
   --primary-color: #ADD8E6; /* Azul */
   --secondary-color: #4169E1; /* azul-claro */
