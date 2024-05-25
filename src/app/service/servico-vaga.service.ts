@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 export interface Vaga {
+  id: boolean;
   nome: string;
   descricao: string;
   empresa: string;

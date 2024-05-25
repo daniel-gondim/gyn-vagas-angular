@@ -18,6 +18,7 @@ export class CadastroVagasComponent {
   empresa = '';
   contato = '';
   vagas: Vaga[] = [];
+  id: any;
 
   constructor(private vagaService: ServicoVagaService) {
     console.log('ServicoVagaService injetado:', !!this.vagaService);
@@ -25,6 +26,7 @@ export class CadastroVagasComponent {
 
   adicionarVaga() {
     const vaga: Vaga = {
+      id : this.id,
       nome: this.nome,
       salario: this.salario,
       descricao: this.descricao,
