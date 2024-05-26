@@ -36,7 +36,9 @@ export class TabelaVagasComponent implements OnInit {
   }
 
   selecionarVaga(vaga: Vaga): void {
+    console.log("Vaga selecionada:", vaga);
     this.vagaSelecionada = {...vaga}; // Clona a vaga selecionada para edição
+    console.log("Vaga selecionada", this.vagaSelecionada);
   }
 
   atualizarVaga(vagaEditada: Vaga): void {
@@ -60,5 +62,6 @@ export class TabelaVagasComponent implements OnInit {
 
   cancelarEdicao() {
     this.vagaSelecionada = null;
+    console.log("Edição cancelada");
   }
 }

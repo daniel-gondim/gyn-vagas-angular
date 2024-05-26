@@ -23,9 +23,8 @@
     </tr>
     </tbody>
   </table>
-  <app-edita-vaga (edicaoCancelada)="cancelarEdicao()"
-                  (vagaEditada)="atualizarVaga($event)"
-                  *ngIf="vagaSelecionada"
-                  [vaga]="vagaSelecionada">
-  </app-edita-vaga>
+  <app-edita-vaga *ngIf="vagaSelecionada"
+                  [vaga]="vagaSelecionada"
+                  (edicaoCancelada)="cancelarEdicao()"
+                  (vagaEditada)="atualizarVaga($event)"></app-edita-vaga>
 </div>

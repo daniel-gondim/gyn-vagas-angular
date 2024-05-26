@@ -18,12 +18,16 @@ export class EditaVagaComponent {
   @Output() edicaoCancelada = new EventEmitter<void>();
   @Output() vagaEditada = new EventEmitter<Vaga>();
 
-  constructor(private vagaService: ServicoVagaService) {}
+  constructor(private vagaService: ServicoVagaService) {
+    console.log('EditaVagaComponent criado');
+  }
 
   salvarEdicao(): void {
-    if(this.vaga && this.vaga.id) {
+    console.log("Salvando edição da vaga:", this.vaga);
+    if (this.vaga && this.vaga.id) {
       this.vagaService.editarVaga(this.vaga.id.toString(), this.vaga).subscribe(
         (vagaEditada) => {
+          console.log("Vaga editada com sucesso:", vagaEditada);
           this.vagaEditada.emit(vagaEditada);
         },
         (error) => {
@@ -35,6 +39,7 @@ export class EditaVagaComponent {
   }
 
   cancelarEdicao() {
-
+    console.log("Edição cancelada");
+    this.edicaoCancelada.emit();
   }
 }
