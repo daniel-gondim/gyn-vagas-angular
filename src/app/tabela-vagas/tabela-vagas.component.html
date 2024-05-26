@@ -2,25 +2,30 @@
   <h2>Lista de Vagas</h2>
   <table class="table table-hover">
     <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Descrição</th>
-        <th>Empresa</th>
-        <th>Contato</th>
-        <th>Salário</th>
-      </tr>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Empresa</th>
+      <th>Contato</th>
+      <th>Salário</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let vaga of vagas">
-        <td>{{ vaga.nome }}</td>
-        <td>{{ vaga.descricao }}</td>
-        <td>{{ vaga.empresa }}</td>
-        <td>{{ vaga.contato }}</td>
-        <td>R$ {{ vaga.salario }}</td>
-        <td>
-          <button class="btn btn-outline-primary m-lg-2" >Editar</button>
-        </td>
-      </tr>
+    <tr *ngFor="let vaga of vagas">
+      <td>{{ vaga.nome }}</td>
+      <td>{{ vaga.descricao }}</td>
+      <td>{{ vaga.empresa }}</td>
+      <td>{{ vaga.contato }}</td>
+      <td>R$ {{ vaga.salario }}</td>
+      <td>
+        <button class="btn btn-outline-primary m-lg-2" (click)="selecionarVaga(vaga)">Editar</button>
+      </td>
+    </tr>
     </tbody>
   </table>
+  <app-edita-vaga (edicaoCancelada)="cancelarEdicao()"
+                  (vagaEditada)="atualizarVaga($event)"
+                  *ngIf="vagaSelecionada"
+                  [vaga]="vagaSelecionada">
+  </app-edita-vaga>
 </div>
