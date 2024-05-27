@@ -7,26 +7,68 @@
           <form>
             <div class="mb-3">
               <label for="inputTitulo" class="form-label">Título</label>
-              <input [(ngModel)]="nome" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputTitulo" placeholder="Título">
+              <input
+                [(ngModel)]="nome"
+                [ngModelOptions]="{ standalone: true }"
+                type="text"
+                class="form-control"
+                id="inputTitulo"
+                placeholder="Título"
+              />
             </div>
             <div class="mb-3">
               <label for="inputEmpresa" class="form-label">Empresa</label>
-              <input [(ngModel)]="empresa" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputEmpresa" placeholder="Empresa">
+              <input
+                [(ngModel)]="empresa"
+                [ngModelOptions]="{ standalone: true }"
+                type="text"
+                class="form-control"
+                id="inputEmpresa"
+                placeholder="Empresa"
+              />
             </div>
             <div class="mb-3">
               <label for="inputSalario" class="form-label">Salário</label>
-              <input [(ngModel)]="salario" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputSalario" placeholder="Salário">
+              <input
+                [(ngModel)]="salario"
+                [ngModelOptions]="{ standalone: true }"
+                type="text"
+                class="form-control"
+                id="inputSalario"
+                placeholder="Salário"
+              />
             </div>
             <div class="mb-3">
               <label for="inputContato" class="form-label">Contato</label>
-              <input [(ngModel)]="contato" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputContato" placeholder="Contato">
+              <input
+                [(ngModel)]="contato"
+                [ngModelOptions]="{ standalone: true }"
+                type="text"
+                class="form-control"
+                id="inputContato"
+                placeholder="Contato"
+              />
             </div>
             <div class="mb-3">
-              <label for="inputDescricao" class="form-label">Descrição da vaga</label>
-              <textarea [(ngModel)]="descricao" [ngModelOptions]="{standalone: true}" class="form-control" id="inputDescricao" rows="4"></textarea>
+              <label for="inputDescricao" class="form-label"
+                >Descrição da vaga</label
+              >
+              <textarea
+                [(ngModel)]="descricao"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control"
+                id="inputDescricao"
+                rows="4"
+              ></textarea>
             </div>
             <div class="d-flex justify-content-center">
-              <button type="submit" (click)="adicionarVaga()" class="btn btn-primary">Adicionar Vaga</button>
+              <button
+                type="submit"
+                (click)="adicionarVaga()"
+                class="btn btn-primary"
+              >
+                Adicionar Vaga
+              </button>
             </div>
           </form>
         </div>

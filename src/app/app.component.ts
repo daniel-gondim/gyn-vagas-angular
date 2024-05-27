@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CadastroVagasComponent } from "./cadastro-vagas/cadastro-vagas.component";
 import { TabelaVagasComponent } from './tabela-vagas/tabela-vagas.component';
+import { CurriculoComponent } from './curriculo/curriculo.component';
 import { NavbarComponent } from './navbar/navbar.component';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @Component({
     selector: 'app-root',
@@ -14,8 +18,9 @@ import { NavbarComponent } from './navbar/navbar.component';
       CadastroVagasComponent,
       TabelaVagasComponent,
       NavbarComponent,
+  
       RouterLink,
-      RouterLinkActive]
+      RouterLinkActive, MatFormFieldModule, CurriculoComponent]
 })
 export class AppComponent {
   title = 'Gyn Vagas';
