@@ -1,37 +1,38 @@
 import { Component } from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-curriculo',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './curriculo.component.html',
-  styleUrl: './curriculo.component.css'
+  styleUrls: ['./curriculo.component.css']
 })
 export class CurriculoComponent {
-//Dados pessoais
-nome: String ='';
-Sobrenome: String = '';
-email: String = '';
-telefone: String = '';
+  // Dados pessoais
+  nome: string = '';
+  sobrenome: string = '';
+  email: string = '';
+  telefone: string = '';
 
- //Endereço-----------------------------------------------------------------------------------------
- Cep: String = '';
- Logradouro: String = '';
- Cidade: String = '';
- UF: String = '';
- 
+  // Endereço
+  cep: string = '';
+  logradouro: string = '';
+  cidade: string = '';
+  uf: string = '';
 
- //Experiências profissionais
-  Empresa: String = '';
-  Funcao: String = '';
+  // Experiências profissionais
+  empresa: string = '';
+  funcao: string = '';
 
-  //Formação
-  
-  InstituicaodeEnsino: String = '';
-  curso: String = '';
-  Nível: String = '';
+  // Formação
+  instituicaoDeEnsino: string = '';
+  curso: string = '';
+  nivel: string = '';
 
+  onSubmit() {
+    // Lógica para manipular o envio do formulário
+    console.log('Currículo salvo', this);
+  }
 }
