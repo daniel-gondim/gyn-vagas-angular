@@ -1,3 +1,5 @@
+@import url('bootstrap/dist/css/bootstrap.min.css');
+
 /* Reset de Estilos */
 * {
   margin: 0;
@@ -50,10 +52,36 @@ nav ul li a {
 }
 
 .hero {
-  background-color: #1d88fa;
+  position: relative;
   color: #fff;
-  padding: 30px 20px;
   text-align: center;
+}
+
+.hero-image {
+  background-image: url('/assets/imagens-pagina-home/maos-dadas.jpeg'); /* Use caminho absoluto */
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* Ajuste a altura conforme necessário */
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Ajuste a opacidade conforme necessário */
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 2;
 }
 
 .hero h2 {
@@ -64,17 +92,6 @@ nav ul li a {
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 40px;
-}
-
-.hero-image {
-  margin-top: 20px;
-}
-
-.rounded-image {
-  border-radius: 50%;
-  width: 200px; /* Ajuste o tamanho conforme necessário */
-  height: 200px; /* Ajuste o tamanho conforme necessário */
-  border: 4px solid #fff; /* Borda branca para destaque */
 }
 
 .why-choose {
@@ -126,19 +143,61 @@ nav ul li a {
 footer {
   background-color: #333;
   color: #fff;
-  padding: 20px 0;
-  text-align: center;
+  padding: 40px 0;
 }
 
-footer p {
-  font-size: 1.1rem;
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 20px;
+}
+
+.footer-section h2 {
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
-.carousel-item {
-  height: 400px; /* Altura desejada para as imagens do carrossel */
+.footer-section p, .footer-section ul {
+  font-size: 1.1rem;
 }
 
-.carousel-item img {
-  object-fit: contain;
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+  border-top: 1px solid #555;
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-section {
+    margin: 10px 0;
+  }
 }
