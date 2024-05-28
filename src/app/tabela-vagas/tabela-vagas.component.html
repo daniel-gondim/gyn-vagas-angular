@@ -1,28 +1,31 @@
+<br>
 <div class="tabela-vagas">
   <h2>Lista de Vagas</h2>
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Empresa</th>
-      <th>Contato</th>
-      <th>Salário</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let vaga of vagas">
-      <td>{{ vaga.nome }}</td>
-      <td>{{ vaga.descricao }}</td>
-      <td>{{ vaga.empresa }}</td>
-      <td>{{ vaga.contato }}</td>
-      <td>R$ {{ vaga.salario }}</td>
-      <td>
-        <button class="btn btn-outline-primary m-lg-2" (click)="selecionarVaga(vaga)">Editar</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="vaga" *ngFor="let vaga of vagas">
+    <div class="info">
+      <div class="label">Nome:</div>
+      <div class="value">{{ vaga.nome }}</div>
+    </div>
+    <div class="info">
+      <div class="label">Descrição:</div>
+      <div class="value">{{ vaga.descricao }}</div>
+    </div>
+    <div class="info">
+      <div class="label">Empresa:</div>
+      <div class="value">{{ vaga.empresa }}</div>
+    </div>
+    <div class="info">
+      <div class="label">Contato:</div>
+      <div class="value">{{ vaga.contato }}</div>
+    </div>
+    <div class="info">
+      <div class="label">Salário:</div>
+      <div class="value">R$ {{ vaga.salario }}</div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-outline-primary btn-editar" (click)="selecionarVaga(vaga)">Editar</button>
+    </div>
+  </div>
   <app-edita-vaga *ngIf="vagaSelecionada"
                   [vaga]="vagaSelecionada"
                   (edicaoCancelada)="cancelarEdicao()"
