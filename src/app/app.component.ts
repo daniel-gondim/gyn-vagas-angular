@@ -4,6 +4,7 @@ import { CadastroVagasComponent } from "./cadastro-vagas/cadastro-vagas.componen
 import { TabelaVagasComponent } from './tabela-vagas/tabela-vagas.component';
 import { CurriculoComponent } from './curriculo/curriculo.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 
@@ -18,7 +19,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
       CadastroVagasComponent,
       TabelaVagasComponent,
       NavbarComponent,
-  
+      HttpClientModule,
       RouterLink,
       RouterLinkActive, MatFormFieldModule, CurriculoComponent]
 })
