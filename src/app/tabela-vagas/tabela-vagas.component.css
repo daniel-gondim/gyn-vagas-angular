@@ -1,25 +1,62 @@
-/* tabela-vagas.component.css */
-.tabela-vagas table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 10px;
-  }
+/* Estilo para o contêiner do componente */
+:host {
+  display: block;
+  background-color: #7ad5ff; /* Cor de fundo azul sutil para este componente */
+  padding: 20px;
+  min-height: 100vh; /* Garante que o fundo ocupe toda a altura da tela */
+  box-sizing: border-box;
+}
 
-  .tabela-vagas th,
-  .tabela-vagas td {
-    text-align: left;
-    padding: 8px;
-    border: 1px solid #ddd;
-  }
+h2 {
+  text-align: center;
+}
 
-  .tabela-vagas th {
-    background-color: #f2f2f2;
-  }
+/* Estilos para o contêiner principal */
+.tabela-vagas {
+  max-width: 800px; /* Define a largura máxima da div */
+  margin: 0 auto; /* Centraliza a div na página */
+  background-color: #ffffff; /* Fundo branco para o contêiner */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  .tabela-vagas tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
+/* Estilos para cada vaga */
+.vaga {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f2f2f2; /* Cor de fundo cinza claro para as divs de vagas */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc; /* Adiciona uma borda ao contêiner de cada vaga */
+}
 
-  .tabela-vagas tr:hover {
-    background-color: #e9e9e9;
-  }
+/* Estilos para as informações de cada vaga */
+.vaga .info {
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.vaga .label {
+  flex: 0 0 120px;
+  font-weight: bold;
+}
+
+.vaga .value {
+  flex: 1;
+}
+
+/* Estilos para o botão de editar */
+.btn-editar {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-editar:hover {
+  background-color: #2980b9;
+}
