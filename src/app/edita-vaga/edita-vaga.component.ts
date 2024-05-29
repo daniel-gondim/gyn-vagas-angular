@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {ServicoVagaService, Vaga} from "../service/servico-vaga.service";
 import {NgIf} from "@angular/common";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-edita-vaga',
@@ -13,13 +14,28 @@ import {NgIf} from "@angular/common";
   templateUrl: './edita-vaga.component.html',
   styleUrl: './edita-vaga.component.css'
 })
-export class EditaVagaComponent {
+export class EditaVagaComponent implements OnInit {
   @Input() vaga: Vaga | null = null;
   @Output() edicaoCancelada = new EventEmitter<void>();
   @Output() vagaEditada = new EventEmitter<Vaga>();
 
-  constructor(private vagaService: ServicoVagaService) {
+  constructor(private vagaService: ServicoVagaService, private route: ActivatedRoute) {
     console.log('EditaVagaComponent criado');
+  }
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.vagaService.obterVagaPorId(id).subscribe(
+        (vaga) => {
+          this.vaga = vaga;
+          console.log('Vaga carregada:', this.vaga);
+        },
+        (error) => {
+          console.log('Erro ao carregar vaga:', error);
+        }
+      );
+    }
   }
 
   salvarEdicao(): void {
