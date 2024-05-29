@@ -1,22 +1,67 @@
-import { Component, OnInit } from '@angular/core';
-import { ServicoVagaService, Vaga } from '../service/servico-vaga.service';
-import { CommonModule } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {ServicoVagaService, Vaga} from '../service/servico-vaga.service';
+import {CommonModule} from '@angular/common';
+import {HttpClientModule} from "@angular/common/http";
+import {EditaVagaComponent} from "../edita-vaga/edita-vaga.component";
 
 @Component({
   selector: 'app-tabela-vagas',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule, EditaVagaComponent],
   templateUrl: './tabela-vagas.component.html',
   styleUrl: './tabela-vagas.component.css'
 })
-export class TabelaVagasComponent implements OnInit{
+export class TabelaVagasComponent implements OnInit {
   vagas: Vaga[] = [];
+  vagaSelecionada: Vaga | null = null;
 
-  constructor (private servicoVagaService: ServicoVagaService) {}
-
-  ngOnInit() {
-    this.vagas = this.servicoVagaService.obterVagas();
-    console.log("Obtendo vagas")
+  constructor(private servicoVagaService: ServicoVagaService) {
+    console.log('ServicoVagaService injetado:', !!this.servicoVagaService);
   }
 
+  ngOnInit() {
+    this.obterVagas();
+  }
+
+  obterVagas(): void {
+    this.servicoVagaService.obterVagas().subscribe(
+      (data: Vaga[]) => {
+        this.vagas = data;
+        console.log("Vagas obtidas com sucesso:", this.vagas);
+      },
+      (error) => {
+        console.error("Erro ao obter vagas:", error);
+      }
+    );
+  }
+
+  selecionarVaga(vaga: Vaga): void {
+    console.log("Vaga selecionada:", vaga);
+    this.vagaSelecionada = {...vaga}; // Clona a vaga selecionada para edição
+    console.log("Vaga selecionada", this.vagaSelecionada);
+  }
+
+  atualizarVaga(vagaEditada: Vaga): void {
+    if (vagaEditada.id) {
+      this.servicoVagaService.editarVaga(vagaEditada.id.toString(), vagaEditada).subscribe(
+        (vagaAtualizada) => {
+          const index = this.vagas.findIndex(v => v.id === vagaAtualizada.id);
+          if (index !== -1) {
+            this.vagas[index] = vagaAtualizada;
+          }
+          this.vagaSelecionada = null;
+          alert('Vaga editada com sucesso!');
+        },
+        (error) => {
+          console.error("Erro ao editar vaga:", error);
+          alert('Erro ao editar vaga.');
+        }
+      );
+    }
+  }
+
+  cancelarEdicao() {
+    this.vagaSelecionada = null;
+    console.log("Edição cancelada");
+  }
 }

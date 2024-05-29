@@ -23,6 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
       RouterLink,
       RouterLinkActive, MatFormFieldModule, CurriculoComponent]
 })
+
 export class AppComponent {
   title = 'Gyn Vagas';
 }
