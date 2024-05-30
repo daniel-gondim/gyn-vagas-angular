@@ -42,7 +42,7 @@ export class ServicoVagaService {
   }
 
   deletarVaga(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, {responseType: 'text' as 'json'});
   }
 
   private validarVaga(vaga: Vaga): boolean {
