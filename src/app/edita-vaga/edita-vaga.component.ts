@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {ServicoVagaService, Vaga} from "../service/servico-vaga.service";
 import {NgIf} from "@angular/common";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-edita-vaga',
@@ -19,7 +19,7 @@ export class EditaVagaComponent implements OnInit {
   @Output() edicaoCancelada = new EventEmitter<void>();
   @Output() vagaEditada = new EventEmitter<Vaga>();
 
-  constructor(private vagaService: ServicoVagaService, private route: ActivatedRoute) {
+  constructor(private vagaService: ServicoVagaService, private route: ActivatedRoute, private router: Router) {
     console.log('EditaVagaComponent criado');
   }
 
@@ -40,11 +40,12 @@ export class EditaVagaComponent implements OnInit {
 
   salvarEdicao(): void {
     console.log("Salvando edição da vaga:", this.vaga);
-    if (this.vaga && this.vaga.id) {
+    if (this.vaga) {
       this.vagaService.editarVaga(this.vaga.id.toString(), this.vaga).subscribe(
         (vagaEditada) => {
           console.log("Vaga editada com sucesso:", vagaEditada);
           this.vagaEditada.emit(vagaEditada);
+          this.router.navigate(['/tabela-de-vagas']);
         },
         (error) => {
           alert('Erro ao editar vaga.');
@@ -57,5 +58,6 @@ export class EditaVagaComponent implements OnInit {
   cancelarEdicao() {
     console.log("Edição cancelada");
     this.edicaoCancelada.emit();
+    this.router.navigate(['/tabela-de-vagas']);
   }
 }
