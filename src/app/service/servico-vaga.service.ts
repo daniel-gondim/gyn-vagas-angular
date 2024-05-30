@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 export interface Vaga {
-  id: boolean;
+  id: string;
   nome: string;
   descricao: string;
   empresa: string;
@@ -54,4 +54,9 @@ export class ServicoVagaService {
       !!vaga.salario
     );
   }
+
+  obterVagaPorId(id: string): Observable<Vaga> {
+    return this.http.get<Vaga>(`${this.apiUrl}/${id}`);
+  }
+
 }
