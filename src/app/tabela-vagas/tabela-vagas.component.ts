@@ -3,7 +3,7 @@ import {ServicoVagaService, Vaga} from '../service/servico-vaga.service';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
 import {EditaVagaComponent} from "../edita-vaga/edita-vaga.component";
-import { Router } from '@angular/router'; // Não se esqueça de importar o Router
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tabela-vagas',
@@ -34,6 +34,18 @@ export class TabelaVagasComponent implements OnInit {
         console.error("Erro ao obter vagas:", error);
       }
     );
+  }
+
+  deletarVaga(vagaASerExcluida: Vaga) {
+    this.servicoVagaService.deletarVaga(vagaASerExcluida.id).subscribe(
+      () => {
+        console.log(`Vaga ${vagaASerExcluida.nome} excluída com sucesso!`);
+        this.obterVagas();
+      },
+      (error) => {
+        console.error("Erro ao excluir vaga: ", error);
+      }
+    )
   }
 
   selecionarVaga(vaga: Vaga): void {
