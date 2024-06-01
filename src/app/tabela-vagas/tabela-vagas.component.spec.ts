@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TabelaVagasComponent } from './tabela-vagas.component';
 import { ServicoVagaService, Vaga } from '../service/servico-vaga.service';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('TabelaVagasComponent', () => {
   let component: TabelaVagasComponent;
@@ -10,6 +11,7 @@ describe('TabelaVagasComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [],
+      imports: [HttpClientTestingModule],
       providers: [ServicoVagaService],
     }).compileComponents();
   });

@@ -7,26 +7,16 @@
 }
 
 .cadastro-vaga h2 {
-  color: #EA5455;
+  color: var(--bs-primary);
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 30px;
 }
 
-.cadastro-vaga input {
-  width: 100%;
-  border: 1px solid #CCC;
-  background-color: #F8F9FA;
-  border-radius: 0;
-  height: 50px;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
 .cadastro-vaga button {
   height: 50px;
   width: 100%;
-  background-color: #EA5455;
+  background-color: var(--bs-primary);
   border: 1px solid transparent;
   border-radius: 0;
   color: #FFF;
@@ -36,6 +26,6 @@
 
 .cadastro-vaga button:hover {
   background-color: #FFF;
-  color: #EA5455;
-  border-color: #EA5455;
+  color: var(--bs-primary);
+  border-color: var(--bs-primary);
 }

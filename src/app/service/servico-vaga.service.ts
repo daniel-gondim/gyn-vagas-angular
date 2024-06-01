@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 export interface Vaga {
+  id: string;
   nome: string;
   descricao: string;
   empresa: string;
@@ -12,22 +15,34 @@ export interface Vaga {
   providedIn: 'root',
 })
 export class ServicoVagaService {
-  private vagas: Vaga[] = [];
+  private apiUrl = 'http://localhost:8080/vagas';
 
-  constructor() {}
+  constructor(private http: HttpClient) {
+    console.log('ServicoVagaService instanciado');
+  }
 
-  adicionarVaga(vaga: Vaga) {
+  adicionarVaga(vaga: Vaga): Observable<Vaga> {
     if (!this.validarVaga(vaga)) {
       alert('Por favor, preencha todos os campos.');
-      return;
+      return new Observable(observer => {
+        observer.error("Validação falhou!")
+      });
     }
 
     console.log('Vaga adicionada!');
-    this.vagas.push(vaga);
+    return this.http.post<Vaga>(this.apiUrl, vaga);
   }
 
-  obterVagas(): Vaga[] {
-    return this.vagas;
+  obterVagas(): Observable<Vaga[]> {
+    return this.http.get<Vaga[]>(this.apiUrl);
+  }
+
+  editarVaga(id: string, vaga: Vaga): Observable<Vaga> {
+    return this.http.put<Vaga>(`${this.apiUrl}/${id}`, vaga);
+  }
+
+  deletarVaga(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, {responseType: 'text' as 'json'});
   }
 
   private validarVaga(vaga: Vaga): boolean {
@@ -39,4 +54,9 @@ export class ServicoVagaService {
       !!vaga.salario
     );
   }
+
+  obterVagaPorId(id: string): Observable<Vaga> {
+    return this.http.get<Vaga>(`${this.apiUrl}/${id}`);
+  }
+
 }

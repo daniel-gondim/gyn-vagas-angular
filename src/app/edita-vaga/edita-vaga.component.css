@@ -1,0 +1,58 @@
+/* Estilos para o modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* cor de fundo semi-transparente para o modal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff; /* cor de fundo do conteúdo do modal */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* sombra suave */
+  max-width: 500px; /* largura máxima do conteúdo do modal */
+  width: 100%;
+}
+
+/* Estilos para os campos do formulário */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilos para os botões */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: #28a745; /* cor de fundo do botão de sucesso */
+  color: #fff; /* cor do texto do botão de sucesso */
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* cor de fundo do botão secundário */
+  color: #fff; /* cor do texto do botão secundário */
+  margin-left: 10px; /* espaço entre os botões */
+}

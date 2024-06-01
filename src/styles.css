@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+/*@import 'src/_variables.scss';*/
+/*$primary: #EA5455; !* Rosa *!*/
+/*$secondary: #3498db; !* Azul *!*/
+
+.tabela-vagas {
+  padding: 50px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
+  margin-bottom: 50px;
+
+  h2 {
+    color: #EA5455;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  table {
+    width: 100%;
+    border: 1px solid #3498db;
+
+    thead {
+      background-color: #3498db;
+      color: white;
+
+      th {
+        padding: 10px;
+        text-align: left;
+      }
+    }
+
+    tbody {
+      tr {
+        &:hover {
+          background-color: #3498db;
+        }
+
+        td {
+          padding: 10px;
+          border-bottom: 1px solid #3498db;
+        }
+      }
+    }
+  }
+}
