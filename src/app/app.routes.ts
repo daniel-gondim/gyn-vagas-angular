@@ -28,6 +28,17 @@ export const routes: Routes = [
     path: 'editar-vaga/:id',
     component: EditaVagaComponent,
     title: 'Edição de vaga'
+  },
+
+  {
+    path: '',
+    redirectTo: '/home', // Redireciona para /home se a rota estiver vazia
+    pathMatch: 'full'
+  },
+
+  {
+    path: '**', // Rota de fallback para página não encontrada
+    redirectTo: '/home'
   }
 
 ];
