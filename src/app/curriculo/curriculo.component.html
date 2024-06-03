@@ -1,174 +1,80 @@
 <div class="container mt-4">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="card-title mb-4">Currículo</h2>
-            <form (ngSubmit)="onSubmit()">
-              <!-- Dados Pessoais -->
-              <h1 class="section-title">Dados Pessoais</h1>
-              <div class="mb-3">
-                <label for="inputNome" class="form-label">Nome</label>
-                <input
-                  [(ngModel)]="nome"
-                  type="text"
-                  class="form-control"
-                  id="inputNome"
-                  placeholder="Nome"
-                  name="nome"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="inputSobrenome" class="form-label">Sobrenome</label>
-                <input
-                  [(ngModel)]="sobrenome"
-                  type="text"
-                  class="form-control"
-                  id="inputSobrenome"
-                  placeholder="Sobrenome"
-                  name="sobrenome"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="inputEmail" class="form-label">Email</label>
-                <input
-                  [(ngModel)]="email"
-                  type="email"
-                  class="form-control"
-                  id="inputEmail"
-                  placeholder="Email"
-                  name="email"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="inputTelefone" class="form-label">Telefone</label>
-                <input
-                  [(ngModel)]="telefone"
-                  type="text"
-                  class="form-control"
-                  id="inputTelefone"
-                  placeholder="Telefone"
-                  name="telefone"
-                />
-              </div>
-              
-              <!-- Endereço -->
-              <h1 class="section-title">Endereço</h1>
-              <div class="mb-3">
-                <label for="inputCep" class="form-label">CEP</label>
-                <input
-                  [(ngModel)]="cep"
-                  type="text"
-                  class="form-control"
-                  id="inputCep"
-                  placeholder="CEP"
-                  name="cep"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="inputLogradouro" class="form-label">Logradouro</label>
-                <input
-                  [(ngModel)]="logradouro"
-                  type="text"
-                  class="form-control"
-                  id="inputLogradouro"
-                  placeholder="Logradouro"
-                  name="logradouro"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="inputCidade" class="form-label">Cidade</label>
-                <input
-                  [(ngModel)]="cidade"
-                  type="text"
-                  class="form-control"
-                  id="inputCidade"
-                  placeholder="Cidade"
-                  name="cidade"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="inputUf" class="form-label">UF</label>
-                <input
-                  [(ngModel)]="uf"
-                  type="text"
-                  class="form-control"
-                  id="inputUf"
-                  placeholder="UF"
-                  name="uf"
-                />
-              </div>
-              
-              <!-- Experiências Profissionais -->
-              <h1 class="section-title">Experiências Profissionais</h1>
-              <div class="mb-3">
-                <label for="inputEmpresa" class="form-label">Empresa</label>
-                <input
-                  [(ngModel)]="empresa"
-                  type="text"
-                  class="form-control"
-                  id="inputEmpresa"
-                  placeholder="Empresa"
-                  name="empresa"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="inputFuncao" class="form-label">Função</label>
-                <input
-                  [(ngModel)]="funcao"
-                  type="text"
-                  class="form-control"
-                  id="inputFuncao"
-                  placeholder="Função"
-                  name="funcao"
-                />
-              </div>
-              
-              <!-- Formação -->
-              <h1 class="section-title">Formação</h1>
-              <div class="mb-3">
-                <label for="inputInstituicao" class="form-label">Instituição de Ensino</label>
-                <input
-                  [(ngModel)]="instituicaoDeEnsino"
-                  type="text"
-                  class="form-control"
-                  id="inputInstituicao"
-                  placeholder="Instituição de Ensino"
-                  name="instituicao"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="inputCurso" class="form-label">Curso</label>
-                <input
-                  [(ngModel)]="curso"
-                  type="text"
-                  class="form-control"
-                  id="inputCurso"
-                  placeholder="Curso"
-                  name="curso"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="inputNivel" class="form-label">Nível</label>
-                <input
-                  [(ngModel)]="nivel"
-                  type="text"
-                  class="form-control"
-                  id="inputNivel"
-                  placeholder="Nível"
-                  name="nivel"
-                />
-              </div>
-              
-              <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">
-                  Salvar Currículo
-                </button>
-              </div>
-            </form>
-          </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title mb-4">Currículo</h2>
+          <form (ngSubmit)="onSubmit()">
+            <!-- Dados Pessoais -->
+            <h1 class="section-title">Dados Pessoais</h1>
+            <div class="mb-3">
+              <label for="inputNome" class="form-label">Nome</label>
+              <input [(ngModel)]="curriculo.nome" type="text" class="form-control" id="inputNome" placeholder="Nome" name="nome" required />
+            </div>
+            <div class="mb-3">
+              <label for="inputSobrenome" class="form-label">Sobrenome</label>
+              <input [(ngModel)]="curriculo.sobrenome" type="text" class="form-control" id="inputSobrenome" placeholder="Sobrenome" name="sobrenome" required />
+            </div>
+            <div class="mb-3">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input [(ngModel)]="curriculo.email" type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required />
+            </div>
+            <div class="mb-3">
+              <label for="inputTelefone" class="form-label">Telefone</label>
+              <input [(ngModel)]="curriculo.telefone" type="text" class="form-control" id="inputTelefone" placeholder="Telefone" name="telefone" required />
+            </div>
+            
+            <!-- Endereço -->
+            <h1 class="section-title">Endereço</h1>
+            <div class="mb-3">
+              <label for="inputCep" class="form-label">CEP</label>
+              <input [(ngModel)]="curriculo.cep" type="text" class="form-control" id="inputCep" placeholder="CEP" name="cep" required />
+            </div>
+            <div class="mb-3">
+              <label for="inputLogradouro" class="form-label">Logradouro</label>
+              <input [(ngModel)]="curriculo.logradouro" type="text" class="form-control" id="inputLogradouro" placeholder="Logradouro" name="logradouro" required />
+            </div>
+            <div class="mb-3">
+              <label for="inputCidade" class="form-label">Cidade</label>
+              <input [(ngModel)]="curriculo.cidade" type="text" class="form-control" id="inputCidade" placeholder="Cidade" name="cidade" required />
+            </div>
+            <div class="mb-3">
+              <label for="inputUf" class="form-label">UF</label>
+              <input [(ngModel)]="curriculo.uf" type="text" class="form-control" id="inputUf" placeholder="UF" name="uf" required />
+            </div>
+            
+            <!-- Experiências Profissionais -->
+            <h1 class="section-title">Experiências Profissionais</h1>
+            <div class="mb-3">
+              <label for="inputEmpresa" class="form-label">Empresa</label>
+              <input [(ngModel)]="curriculo.empresa" type="text" class="form-control" id="inputEmpresa" placeholder="Empresa" name="empresa" required />
+            </div>
+            <div class="mb-3">
+              <label for="inputFuncao" class="form-label">Função</label>
+              <input [(ngModel)]="curriculo.funcao" type="text" class="form-control" id="inputFuncao" placeholder="Função" name="funcao" required />
+            </div>
+            
+            <!-- Formação -->
+            <h1 class="section-title">Formação</h1>
+            <div class="mb-3">
+              <label for="inputInstituicao" class="form-label">Instituição de Ensino</label>
+              <input [(ngModel)]="curriculo.instituicaoDeEnsino" type="text" class="form-control" id="inputInstituicao" placeholder="Instituição de Ensino" name="instituicaoDeEnsino" required />
+            </div>
+            <div class="mb-3">
+              <label for="inputCurso" class="form-label">Curso</label>
+              <input [(ngModel)]="curriculo.curso" type="text" class="form-control" id="inputCurso" placeholder="Curso" name="curso" required />
+            </div>
+            <div class="mb-3">
+              <label for="inputNivel" class="form-label">Nível</label>
+              <input [(ngModel)]="curriculo.nivel" type="text" class="form-control" id="inputNivel" placeholder="Nível" name="nivel" required />
+            </div>
+            
+            <div class="d-flex justify-content-center">
+              <button (click)="cadastrarCurriculo" type="submit" class="btn btn-primary">Salvar Currículo</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

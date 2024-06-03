@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 export interface Curriculo {
   nome: string;
@@ -28,45 +29,14 @@ export class CurriculoService {
     console.log('CurriculoService instanciado');
   }
 
-  adicionarCurriculo(curriculo: Curriculo): Observable<Curriculo> {
-    if (!this.validarCurriculo(curriculo)) {
-      alert('Por favor, preencha todos os campos.');
-      return new Observable(observer => {
-        observer.error("Validação falhou!")
-      });
-    }
-
-    console.log('Currículo adicionado!');
-    return this.http.post<Curriculo>(this.apiUrl, curriculo);
-  }
-
-  obterCurriculos(): Observable<Curriculo[]> {
-    return this.http.get<Curriculo[]>(this.apiUrl);
-  }
-
-  editarCurriculo(id: string, curriculo: Curriculo): Observable<Curriculo> {
-    return this.http.put<Curriculo>(`${this.apiUrl}/${id}`, curriculo);
-  }
-
-  deletarCurriculo(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
-
-  private validarCurriculo(curriculo: Curriculo): boolean {
-    return (
-      !!curriculo.nome &&
-      !!curriculo.sobrenome &&
-      !!curriculo.email &&
-      !!curriculo.telefone &&
-      !!curriculo.cep &&
-      !!curriculo.logradouro &&
-      !!curriculo.cidade &&
-      !!curriculo.uf &&
-      !!curriculo.empresa &&
-      !!curriculo.funcao &&
-      !!curriculo.instituicaoDeEnsino &&
-      !!curriculo.curso &&
-      !!curriculo.nivel
+  cadastrarCurriculo(curriculo: Curriculo): Observable<Curriculo> {
+    return this.http.post<Curriculo>(this.apiUrl, curriculo).pipe(
+      catchError(this.handleError)
     );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.error('Erro ao cadastrar curriculo:', error);
+    return throwError('Ocorreu um erro ao processar a solicitação.');
   }
 }
