@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 export interface Vaga {
-  id: boolean;
+  id: string;
   nome: string;
   descricao: string;
   empresa: string;
@@ -42,7 +42,7 @@ export class ServicoVagaService {
   }
 
   deletarVaga(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, {responseType: 'text' as 'json'});
   }
 
   private validarVaga(vaga: Vaga): boolean {
@@ -54,4 +54,9 @@ export class ServicoVagaService {
       !!vaga.salario
     );
   }
+
+  obterVagaPorId(id: string): Observable<Vaga> {
+    return this.http.get<Vaga>(`${this.apiUrl}/${id}`);
+  }
+
 }

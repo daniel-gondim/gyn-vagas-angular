@@ -3,6 +3,7 @@ import {ServicoVagaService, Vaga} from '../service/servico-vaga.service';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
 import {EditaVagaComponent} from "../edita-vaga/edita-vaga.component";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tabela-vagas',
@@ -15,7 +16,7 @@ export class TabelaVagasComponent implements OnInit {
   vagas: Vaga[] = [];
   vagaSelecionada: Vaga | null = null;
 
-  constructor(private servicoVagaService: ServicoVagaService) {
+  constructor(private servicoVagaService: ServicoVagaService, private router: Router) {
     console.log('ServicoVagaService injetado:', !!this.servicoVagaService);
   }
 
@@ -35,10 +36,22 @@ export class TabelaVagasComponent implements OnInit {
     );
   }
 
+  deletarVaga(vagaASerExcluida: Vaga) {
+    this.servicoVagaService.deletarVaga(vagaASerExcluida.id).subscribe(
+      () => {
+        console.log(`Vaga ${vagaASerExcluida.nome} excluída com sucesso!`);
+        this.obterVagas();
+      },
+      (error) => {
+        console.error("Erro ao excluir vaga: ", error);
+      }
+    )
+  }
+
   selecionarVaga(vaga: Vaga): void {
-    console.log("Vaga selecionada:", vaga);
     this.vagaSelecionada = {...vaga}; // Clona a vaga selecionada para edição
     console.log("Vaga selecionada", this.vagaSelecionada);
+    this.router.navigate(['/editar-vaga', this.vagaSelecionada.id]);
   }
 
   atualizarVaga(vagaEditada: Vaga): void {

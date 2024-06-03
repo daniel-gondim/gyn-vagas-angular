@@ -23,7 +23,8 @@
       <div class="value">R$ {{ vaga.salario }}</div>
     </div>
     <div class="actions">
-      <button class="btn btn-outline-primary btn-editar" (click)="selecionarVaga(vaga)">Editar</button>
+      <button class="btn btn-outline-primary btn-editar me-2" (click)="selecionarVaga(vaga)">Editar</button>
+      <button class="btn btn-outline-danger btn-excluir" (click)="deletarVaga(vaga)">Excluir</button>
     </div>
   </div>
   <app-edita-vaga *ngIf="vagaSelecionada"
