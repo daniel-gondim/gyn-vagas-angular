@@ -7,8 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { environment } from '../environments/environment';
-import{curri}
+
+
 
 
 @Component({
