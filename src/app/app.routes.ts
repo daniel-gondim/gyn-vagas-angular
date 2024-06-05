@@ -3,6 +3,7 @@ import {CadastroVagasComponent} from './cadastro-vagas/cadastro-vagas.component'
 import {TabelaVagasComponent} from './tabela-vagas/tabela-vagas.component';
 import {PaginaHomeComponent} from './pagina-home/pagina-home.component';
 import {EditaVagaComponent} from "./edita-vaga/edita-vaga.component";
+import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.component';
 
 export const routes: Routes = [
 
@@ -22,6 +23,12 @@ export const routes: Routes = [
     path: 'home',
     component: PaginaHomeComponent,
     title: 'Home'
+  },
+
+  {
+    path: 'cadastro-de-empresa',
+    component: CadastroEmpresaComponent,
+    title: 'Cadastro de empresa'
   },
 
   {

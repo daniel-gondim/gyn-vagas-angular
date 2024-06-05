@@ -4,19 +4,20 @@ import {CadastroVagasComponent} from "./cadastro-vagas/cadastro-vagas.component"
 import {TabelaVagasComponent} from './tabela-vagas/tabela-vagas.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {RouterOutlet} from "@angular/router";
+import { CadastroEmpresaComponent } from "./cadastro-empresa/cadastro-empresa.component";
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [HttpClientModule,
-    NavbarComponent,
-    RouterOutlet,
-    CadastroVagasComponent,
-    TabelaVagasComponent
-  ]
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [HttpClientModule,
+        NavbarComponent,
+        RouterOutlet,
+        CadastroVagasComponent,
+        TabelaVagasComponent,
+        CadastroEmpresaComponent]
 })
 
 export class AppComponent {
