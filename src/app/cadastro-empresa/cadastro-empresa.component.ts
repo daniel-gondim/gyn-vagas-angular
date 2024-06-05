@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServicoEmpresaService, Empresa } from '../service/servico-empresa.service';
 
 @Component({
   selector: 'app-cadastro-empresa',
@@ -10,18 +11,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './cadastro-empresa.component.html',
   styleUrl: './cadastro-empresa.component.css'
 })
-export class CadastroEmpresaComponent implements OnInit{
+export class CadastroEmpresaComponent {
 
-empresa: any;
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
-  nome = '';
+  nomeEmpresa = '';
   cnpj = '';
   endereco = '';
   telefone = '';
-  empresa: Empresa[] = [];
+  email = '';
+  empresas: Empresa[] = [];
   id: any;
 
 
@@ -29,10 +26,12 @@ empresa: any;
 
   adicionarEmpresa() {
     const novaEmpresa: Empresa = {
-      nome: this.empresa,
+      id : this.id,
+      nomeEmpresa : this.nomeEmpresa,
       cnpj: this.cnpj,
       endereco: this.endereco,
-      telefone: this.telefone
+      telefone: this.telefone,
+      email: this.email
     };
 
     this.empresaService.adicionarEmpresa(novaEmpresa).subscribe(
@@ -48,10 +47,11 @@ empresa: any;
   }
 
   private resetForm() {
-    this.empresa = '';
+    this.nomeEmpresa = '';
     this.cnpj = '';
     this.endereco = '';
     this.telefone = '';
+    this.email = '';
   }
 
 
