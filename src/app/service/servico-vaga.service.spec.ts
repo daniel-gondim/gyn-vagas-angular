@@ -38,6 +38,7 @@ describe('ServicoVagaService', () => {
     const alertSpy = spyOn(window, 'alert'); // Espionando a função de alerta global
 
     const vaga = {
+      id: 'sdsadada045',
       nome: '',
       salario: 3000,
       descricao: 'Vaga 1',
