@@ -7,7 +7,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private loginUrl = 'http://localhost:8080/api/login'; // Substitua pela URL do seu endpoint de login
+  private loginUrl = 'http://localhost:8080/login'; // Substitua pela URL do seu endpoint de login
 
   constructor(private http: HttpClient) {}
 

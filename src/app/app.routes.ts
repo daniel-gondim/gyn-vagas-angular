@@ -5,6 +5,7 @@ import {TabelaVagasComponent} from './tabela-vagas/tabela-vagas.component';
 import {PaginaHomeComponent} from './pagina-home/pagina-home.component';
 import {EditaVagaComponent} from "./edita-vaga/edita-vaga.component";
 import { CurriculoComponent } from './curriculo/curriculo.component';
+import {LoginComponent} from "./login/login.component";
 export const routes: Routes = [
 
 
@@ -20,7 +21,6 @@ export const routes: Routes = [
     title: 'Tabela de Vagas'
 
   },
-
   {
     path: 'home',
     component: PaginaHomeComponent,
@@ -35,9 +35,13 @@ export const routes: Routes = [
     {
     path: 'Curriculo',
     component: CurriculoComponent,
-    title: 'Currículo' // Maiúsculo corrigido para consistência
+    title: 'Currículo'
   },
-
+  {
+    path: 'login',
+    component: LoginComponent,
+    title: 'Login'
+  },
   {
     path: '',
     redirectTo: '/home', // Redireciona para /home se a rota estiver vazia

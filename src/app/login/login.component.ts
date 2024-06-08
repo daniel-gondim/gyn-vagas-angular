@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService} from "../service/auth.service";
-import {MatFormField} from "@angular/material/form-field";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,9 @@ import {MatFormField} from "@angular/material/form-field";
     MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatFormField
+    MatFormField,
+    MatInput,
+    MatLabel
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
