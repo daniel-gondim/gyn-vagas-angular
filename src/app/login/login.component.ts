@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService} from "../service/auth.service";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ import {MatInput} from "@angular/material/input";
     HttpClientModule,
     MatFormField,
     MatInput,
-    MatLabel
+    MatLabel,
+    MatButton
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']

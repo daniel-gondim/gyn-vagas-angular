@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CadastroVagasComponent } from "./cadastro-vagas/cadastro-vagas.component";
 import { TabelaVagasComponent } from './tabela-vagas/tabela-vagas.component';

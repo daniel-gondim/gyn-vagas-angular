@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {AuthService} from "./auth.service";
 
 export interface Vaga {
   id: string;
@@ -15,7 +16,7 @@ export interface Vaga {
   providedIn: 'root',
 })
 export class ServicoVagaService {
-  private apiUrl = 'http://localhost:8080/vagas';
+  private apiUrl = 'http://localhost:8080/api/vagas';
 
   constructor(private http: HttpClient) {
     console.log('ServicoVagaService instanciado');
@@ -34,6 +35,16 @@ export class ServicoVagaService {
   }
 
   obterVagas(): Observable<Vaga[]> {
+    // // Obtenha o token de autenticação do seu serviço de autenticação
+    // const authToken = this.AuthService.getAuthToken();
+    //
+    // // Adicione o token de autenticação no cabeçalho da requisição
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${authToken}`,
+    //   }),
+    // };
     return this.http.get<Vaga[]>(this.apiUrl);
   }
 
