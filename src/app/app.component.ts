@@ -5,6 +5,7 @@ import {TabelaVagasComponent} from './tabela-vagas/tabela-vagas.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {RouterOutlet} from "@angular/router";
 import { CadastroEmpresaComponent } from "./cadastro-empresa/cadastro-empresa.component";
+import { PerfilEmpresaComponent } from "./perfil-empresa/perfil-empresa.component";
 
 
 @Component({
@@ -17,7 +18,7 @@ import { CadastroEmpresaComponent } from "./cadastro-empresa/cadastro-empresa.co
         RouterOutlet,
         CadastroVagasComponent,
         TabelaVagasComponent,
-        CadastroEmpresaComponent]
+        CadastroEmpresaComponent, PerfilEmpresaComponent]
 })
 
 export class AppComponent {

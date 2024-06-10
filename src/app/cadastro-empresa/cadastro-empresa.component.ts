@@ -26,12 +26,13 @@ export class CadastroEmpresaComponent {
 
   adicionarEmpresa() {
     const novaEmpresa: Empresa = {
-      id : this.id,
-      nomeEmpresa : this.nomeEmpresa,
+      id: this.id,
+      nome: this.nomeEmpresa,
       cnpj: this.cnpj,
       endereco: this.endereco,
       telefone: this.telefone,
-      email: this.email
+      email: this.email,
+      descricao: ''
     };
 
     this.empresaService.adicionarEmpresa(novaEmpresa).subscribe(
