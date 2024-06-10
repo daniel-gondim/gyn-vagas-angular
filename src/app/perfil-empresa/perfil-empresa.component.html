@@ -1,0 +1,84 @@
+<div class="container border">
+  <h1 class="main-heading">Perfil da Empresa</h1>
+
+  <!-- Abas Horizontais -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#infoEmpresa">Informações da Empresa</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#minhasVagas">Minhas Vagas</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <!-- Tab de Informações da Empresa -->
+    <div id="infoEmpresa" class="tab-pane fade show active">
+      <div class="company-info">
+        <!-- <img class="company-logo" [src]="company?.logoUrl" alt="Logo da Empresa" *ngIf="company?.logoUrl"> -->
+        <h2>{{ company?.nome }}</h2>
+        <p>{{ company?.descricao }}</p>
+        <p><strong>CNPJ:</strong> {{ company?.cnpj }}</p>
+        <p><strong>Endereço:</strong> {{ company?.endereco }}</p>
+        <p><strong>Telefone:</strong> {{ company?.telefone }}</p>
+        <p><strong>Email:</strong> {{ company?.email }}</p>
+        <a class="company-website" [href]="company?.website" target="_blank" *ngIf="company?.website">Visite nosso site</a>
+        <button (click)="openCompanyInfoPopup()">Ver Informações da Empresa</button>
+      </div>
+
+      <!-- Benefícios da Empresa -->
+      <div class="benefits">
+        <h3>Benefícios</h3>
+        <ul>
+          <li *ngFor="let benefit of company?.benefits">{{ benefit }}</li>
+        </ul>
+      </div>
+
+      <!-- Galeria de Fotos -->
+      <div class="gallery">
+        <h3>Galeria de Fotos</h3>
+        <div class="photos">
+          <img *ngFor="let photo of company?.photos" [src]="photo" alt="Foto da Empresa">
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab de Minhas Vagas -->
+    <div id="minhasVagas" class="tab-pane fade">
+      <div class="job-cards">
+        <div class="job-card" *ngFor="let job of jobs" (click)="openJobPopup(job)">
+          <h2>{{ job.title }}</h2>
+          <p>{{ job.shortDescription }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pop-up de Informações da Empresa -->
+  <div *ngIf="isCompanyInfoPopupOpen" class="popup">
+    <div class="popup-content">
+      <span class="close" (click)="closeCompanyInfoPopup()">&times;</span>
+      <h2>Informações da Empresa</h2>
+      <p><strong>Nome:</strong> {{ company?.nome }}</p>
+      <p><strong>Descrição:</strong> {{ company?.descricao }}</p>
+      <p><strong>CNPJ:</strong> {{ company?.cnpj }}</p>
+      <p><strong>Endereço:</strong> {{ company?.endereco }}</p>
+      <p><strong>Telefone:</strong> {{ company?.telefone }}</p>
+      <p><strong>Email:</strong> {{ company?.email }}</p>
+      <button (click)="editCompanyInfo()">Editar Informações</button>
+    </div>
+  </div>
+
+  <!-- Pop-up de Informações da Vaga -->
+  <div *ngIf="isJobPopupOpen" class="popup">
+    <div class="popup-content">
+      <span class="close" (click)="closeJobPopup()">&times;</span>
+      <h2>{{ selectedJob?.title }}</h2>
+      <p>{{ selectedJob?.description }}</p>
+      <p><strong>Localização:</strong> {{ selectedJob?.location }}</p>
+      <p><strong>Salário:</strong> {{ selectedJob?.salary }}</p>
+      <button *ngIf="selectedJob" (click)="editJob(selectedJob)">Editar Vaga</button>
+    </div>
+  </div>
+</div>
