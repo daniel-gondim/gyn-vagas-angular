@@ -1,9 +1,9 @@
 /* Estilo para o contêiner do componente */
 :host {
   display: block;
-  background-color: #7ad5ff; /* Cor de fundo azul sutil para este componente */
+  background-color: #ffffff; /* Cor de fundo branca para este componente */
   padding: 20px;
-  min-height: 100vh; /* Garante que o fundo ocupe toda a altura da tela */
+  min-height: 100lvh; /* Garante que o fundo ocupe toda a altura da tela */
   box-sizing: border-box;
 }
 
@@ -13,12 +13,16 @@ h2 {
 
 /* Estilos para o contêiner principal */
 .tabela-vagas {
-  max-width: 800px; /* Define a largura máxima da div */
-  margin: 0 auto; /* Centraliza a div na página */
-  background-color: #ffffff; /* Fundo branco para o contêiner */
-  padding: 20px;
+  max-width: 800px;
+  /*Definealarguramáximadadiv*/margin: 0 auto;
+  /*Centralizaadivnapágina*/background-color: #ffffff;
+  /*Fundobrancoparaocontêiner*/padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(27, 27, 27, 0.1);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 /* Estilos para cada vaga */
