@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CurriculoService, Curriculo } from './curriculo.service';
 
 @Component({
   selector: 'app-curriculo',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule,
+    FormsModule
+  ],
   templateUrl: './curriculo.component.html',
   styleUrl: './curriculo.component.css'
 })
-export class CurriculoComponent {
 
-  imports: [FormsModule],
-  templateUrl: './curriculo.component.html',
-  styleUrls: ['./curriculo.component.css']
-})
 export class CurriculoComponent {
+  form!: FormGroup;
   curriculo: Curriculo = {
     nome: '',
     sobrenome: '',
@@ -31,6 +30,7 @@ export class CurriculoComponent {
     curso: '',
     nivel: ''
   };
+
 
   constructor(private curriculoService: CurriculoService) {}
 
