@@ -26,6 +26,7 @@ describe('TabelaVagasComponent', () => {
   it('deve mostrar lista de vagas quando elas forem adicionadas', () => {
     const vagas: Vaga[] = [
       {
+        id: "jkljsakjdlajsda",
         nome: 'Vaga 1',
         salario: 1000,
         descricao: 'Descrição da vaga 1',
@@ -33,6 +34,7 @@ describe('TabelaVagasComponent', () => {
         contato: 'Contato 1',
       },
       {
+        id: "jkljsakjdlajsda",
         nome: 'Vaga 2',
         salario: 2000,
         descricao: 'Descrição da vaga 2',
