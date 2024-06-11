@@ -5,6 +5,12 @@ import { CurriculoService, Curriculo } from './curriculo.service';
 @Component({
   selector: 'app-curriculo',
   standalone: true,
+  imports: [],
+  templateUrl: './curriculo.component.html',
+  styleUrl: './curriculo.component.css'
+})
+export class CurriculoComponent {
+
   imports: [FormsModule],
   templateUrl: './curriculo.component.html',
   styleUrls: ['./curriculo.component.css']
