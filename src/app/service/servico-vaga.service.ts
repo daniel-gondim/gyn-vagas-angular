@@ -55,6 +55,21 @@ export class ServicoVagaService {
     );
   }
 
+  filtrarVagas(vagas: Vaga[], termo: string): Vaga[] {
+    if (!termo) {
+      return vagas;
+    }
+
+    const lowerTermo = termo.toLowerCase();
+
+    return vagas.filter(vaga =>
+      vaga.nome.toLowerCase().includes(lowerTermo) ||
+      vaga.descricao.toLowerCase().includes(lowerTermo) ||
+      vaga.empresa.toLowerCase().includes(lowerTermo) ||
+      vaga.contato.toLowerCase().includes(lowerTermo)
+    );
+  }
+
   obterVagaPorId(id: string): Observable<Vaga> {
     return this.http.get<Vaga>(`${this.apiUrl}/${id}`);
   }

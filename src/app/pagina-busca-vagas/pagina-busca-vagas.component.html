@@ -1,1 +1,17 @@
-<p>pagina-busca-vagas works!</p>
+<div class="search-container">
+  <h2>Encontre sua vaga de emprego</h2>
+  <input type="text" placeholder="Digite o termo que deseja pesquisa (ex. nome, descrição ou empresa)"
+         [(ngModel)]="termoBuscado" (input)="filtrarVagas()">
+  <button (click)="filtrarVagas()">Buscar Vagas</button>
+</div>
+
+<div class="vagas-list">
+  <h3>Vagas de emprego mais recentes</h3>
+  <div class="vaga-card" *ngFor="let vaga of vagasFiltradas">
+    <h4>{{ vaga.nome }}</h4>
+    <p>{{ vaga.descricao }}</p>
+    <p>{{ vaga.empresa }}</p>
+    <p>{{ vaga.contato }}</p>
+    <p>{{ vaga.salario }}</p>
+  </div>
+</div>

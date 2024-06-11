@@ -4,6 +4,8 @@ import {TabelaVagasComponent} from './tabela-vagas/tabela-vagas.component';
 import {PaginaHomeComponent} from './pagina-home/pagina-home.component';
 import {EditaVagaComponent} from "./edita-vaga/edita-vaga.component";
 import {CurriculoComponent} from './curriculo/curriculo.component';
+import {PaginaBuscaVagasComponent} from "./pagina-busca-vagas/pagina-busca-vagas.component";
+
 export const routes: Routes = [
 
 
@@ -17,6 +19,12 @@ export const routes: Routes = [
     path: 'tabela-de-vagas',
     component: TabelaVagasComponent,
     title: 'Tabela de Vagas'
+  },
+
+  {
+    path: 'busca-de-vagas',
+    component: PaginaBuscaVagasComponent,
+    title: 'Busca de Vagas',
   },
 
   {

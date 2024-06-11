@@ -1,0 +1,24 @@
+.search-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.search-container input {
+  width: 50%;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.search-container button {
+  padding: 10px 20px;
+}
+
+.vagas-list {
+  margin: 20px;
+}
+
+.vaga-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+}
