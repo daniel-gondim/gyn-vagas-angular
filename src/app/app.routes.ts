@@ -36,7 +36,7 @@ export const routes: Routes = [
     path: 'Curriculo',
     component: CurriculoComponent,
     title: 'Currículo' // Maiúsculo corrigido para consistência
-  }
+  },
 
   {
     path: '',
