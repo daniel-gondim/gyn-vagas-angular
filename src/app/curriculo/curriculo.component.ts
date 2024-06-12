@@ -12,6 +12,7 @@ import { jsPDF } from 'jspdf';
 })
 export class CurriculoComponent {
   curriculo: Curriculo = {
+  
     nome: '',
     sobrenome: '',
     email: '',
@@ -22,12 +23,19 @@ export class CurriculoComponent {
     uf: '',
     empresa: '',
     funcao: '',
+    atividades: '',
     instituicaoDeEnsino: '',
     curso: '',
     nivel: ''
   };
 
+  descricao: any;
+
   constructor(private curriculoService: CurriculoService) {}
+
+  onSubmit() {
+    this.cadastrarCurriculo();
+  }
 
   cadastrarCurriculo() {
     this.curriculoService.cadastrarCurriculo(this.curriculo).subscribe(
@@ -37,6 +45,7 @@ export class CurriculoComponent {
       },
       error => {
         console.error('Erro ao cadastrar currículo:', error);
+        alert('Erro ao cadastrar currículo. Tente novamente.');
       }
     );
   }
@@ -54,18 +63,25 @@ export class CurriculoComponent {
 
     doc.setFontSize(12);
 
+    // Desestruturando o objeto curriculo
+    const {
+    nome, sobrenome, email, telefone,
+      cep, logradouro, cidade, uf, empresa, funcao,
+      atividades, instituicaoDeEnsino, curso, nivel
+    } = this.curriculo;
+
     // Dados Pessoais
     doc.setFont('helvetica', 'bold');
     doc.text('Dados Pessoais', margin, y);
     y += lineHeight;
     doc.setFont('helvetica', 'normal');
-    doc.text(`Nome: ${this.curriculo.nome}`, margin, y);
+    doc.text(`Nome: ${nome}`, margin, y);
     y += lineHeight;
-    doc.text(`Sobrenome: ${this.curriculo.sobrenome}`, margin, y);
+    doc.text(`Sobrenome: ${sobrenome}`, margin, y);
     y += lineHeight;
-    doc.text(`Email: ${this.curriculo.email}`, margin, y);
+    doc.text(`Email: ${email}`, margin, y);
     y += lineHeight;
-    doc.text(`Telefone: ${this.curriculo.telefone}`, margin, y);
+    doc.text(`Telefone: ${telefone}`, margin, y);
     y += lineHeight * 2;
 
     // Endereço
@@ -73,13 +89,13 @@ export class CurriculoComponent {
     doc.text('Endereço', margin, y);
     y += lineHeight;
     doc.setFont('helvetica', 'normal');
-    doc.text(`CEP: ${this.curriculo.cep}`, margin, y);
+    doc.text(`CEP: ${cep}`, margin, y);
     y += lineHeight;
-    doc.text(`Logradouro: ${this.curriculo.logradouro}`, margin, y);
+    doc.text(`Logradouro: ${logradouro}`, margin, y);
     y += lineHeight;
-    doc.text(`Cidade: ${this.curriculo.cidade}`, margin, y);
+    doc.text(`Cidade: ${cidade}`, margin, y);
     y += lineHeight;
-    doc.text(`UF: ${this.curriculo.uf}`, margin, y);
+    doc.text(`UF: ${uf}`, margin, y);
     y += lineHeight * 2;
 
     // Experiências Profissionais
@@ -87,9 +103,11 @@ export class CurriculoComponent {
     doc.text('Experiências Profissionais', margin, y);
     y += lineHeight;
     doc.setFont('helvetica', 'normal');
-    doc.text(`Empresa: ${this.curriculo.empresa}`, margin, y);
+    doc.text(`Empresa: ${empresa}`, margin, y);
     y += lineHeight;
-    doc.text(`Função: ${this.curriculo.funcao}`, margin, y);
+    doc.text(`Função: ${funcao}`, margin, y);
+    y += lineHeight;
+    doc.text(`Atividades: ${atividades}`, margin, y, { maxWidth: pageWidth - margin * 2 });
     y += lineHeight * 2;
 
     // Formação
@@ -97,16 +115,12 @@ export class CurriculoComponent {
     doc.text('Formação', margin, y);
     y += lineHeight;
     doc.setFont('helvetica', 'normal');
-    doc.text(`Instituição de Ensino: ${this.curriculo.instituicaoDeEnsino}`, margin, y);
+    doc.text(`Instituição de Ensino: ${instituicaoDeEnsino}`, margin, y);
     y += lineHeight;
-    doc.text(`Curso: ${this.curriculo.curso}`, margin, y);
+    doc.text(`Curso: ${curso}`, margin, y);
     y += lineHeight;
-    doc.text(`Nível: ${this.curriculo.nivel}`, margin, y);
+    doc.text(`Nível: ${nivel}`, margin, y);
 
     doc.save('curriculo.pdf');
-  }
-
-  onSubmit() {
-    this.cadastrarCurriculo();
   }
 }

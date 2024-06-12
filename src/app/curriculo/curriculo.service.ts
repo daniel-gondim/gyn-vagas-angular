@@ -4,6 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 export interface Curriculo {
+
+
   nome: string;
   sobrenome: string;
   email: string;
@@ -14,6 +16,7 @@ export interface Curriculo {
   uf: string;
   empresa: string;
   funcao: string;
+  atividades: string;
   instituicaoDeEnsino: string;
   curso: string;
   nivel: string;
