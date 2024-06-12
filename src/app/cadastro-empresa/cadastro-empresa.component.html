@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title mb-4">Cadastro de Empresa</h2>
+          <form>
+            <div class="mb-3">
+              <label for="inputNome" class="form-label">Nome da Empresa</label>
+              <input [(ngModel)]="nome" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputNome" placeholder="Nome da Empresa">
+            </div>
+            <div class="mb-3">
+              <label for="inputCnpj" class="form-label">CNPJ</label>
+              <input [(ngModel)]="cnpj" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputCnpj" placeholder="CNPJ">
+            </div>
+            <div class="mb-3">
+              <label for="inputEndereco" class="form-label">Endereço</label>
+              <input [(ngModel)]="endereco" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputEndereco" placeholder="Endereço">
+            </div>
+            <div class="mb-3">
+              <label for="inputTelefone" class="form-label">Telefone</label>
+              <input [(ngModel)]="telefone" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputTelefone" placeholder="Telefone">
+            </div>
+            <div class="mb-3">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" (click)="adicionarEmpresa()" class="btn btn-primary">Adicionar Empresa</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
